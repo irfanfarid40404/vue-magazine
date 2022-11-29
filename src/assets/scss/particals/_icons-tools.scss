@@ -1,0 +1,38 @@
+.magazine {
+    .tools {
+        position: absolute;
+        right: -15%;
+        top: 15%;
+        background: #fff;
+        border-radius: 10%;
+        .icons-flex {
+            padding: 1rem;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    .play-tools {
+        position: absolute;
+        top: 112%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        z-index: 1000;
+        .icons-flex {
+            padding: 1rem;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    // .setting-show {
+    //     background: #fff;
+    //     position: absolute;
+    //     width: 200px;
+    //     height: 40%;
+    //     top: 60%;
+    //     left: 80%;
+    //     // transform: translate(-50%, -50%);
+    // }
+}
