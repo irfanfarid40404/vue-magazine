@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import Swiper from 'swiper';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
 // import '../src/assets/js/turnjs'
@@ -11,6 +12,10 @@ import 'aos/dist/aos.css'
 import $ from 'jquery'
 import VueSplide from '@splidejs/vue-splide';
 import Carousel3d from 'vue-carousel-3d';
+// import Swiper styles
+import 'swiper/css';
+
+const swiper = new Swiper();
 
 
 
