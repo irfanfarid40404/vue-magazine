@@ -185,7 +185,7 @@ export default {
               </p>
             </div>
             <div class="modal-footer">
-              <a href="https://drive.google.com/file/d/1s_I6ul4DDP3AV-msEAAjXBX-txEvX7zo/view?usp=share_link">
+              <a href="https://drive.google.com/file/d/1_kONVD0oAtSnelYbz4IBNeSpuexDxaxC/view?usp=sharing">
                 <button class="btn btn-success btn-block" data-dismiss="modal">
                 Download
               </button>

@@ -1,78 +1,117 @@
 <template>
   <main>
-    <!-- <Navbar/> -->
-    <section class="magazine">
-      <flipbook class="flipbook" :pages="pages" v-slot="flipbook">
-          <div
-            class="appMagazine-tools-display"
-            :class="{ 'trans-tools-btn': toggleView }"
-          >
-            Page {{ flipbook.page }} of {{ flipbook.numPages }}
-            <div
-              class="appMagazine-tools-display-item"
-              :class="{ disabled: !flipbook.canZoomIn }"
-              @click="flipbook.zoomIn"
-            >
-              <Icons name="zoomIn" />
-            </div>
-            <div class="appMagazine-tools-display-item">
-              <Icons name="backward" />
-            </div>
-            <div
-              class="appMagazine-tools-display-item"
-              :class="{ disabled: !flipbook.canFlipLeft }"
-              @click="flipbook.flipLeft"
-            >
-              <Icons name="chevron-left" />
-            </div>
-            <div class="appMagazine-tools-display-item">
-              <Icons name="play" />
-            </div>
-            <div
-              class="appMagazine-tools-display-item"
-              :class="{ disabled: !flipbook.canFlipRight }"
-              @click="flipbook.flipRight"
-            >
-              <Icons name="chevron-right" />
-            </div>
-            <div class="appMagazine-tools-display-item">
-              <Icons name="forward" />
-            </div>
-            <div
-              class="appMagazine-tools-display-item"
-              :class="{ disabled: !flipbook.canZoomOut }"
-              @click="flipbook.zoomOut"
-            >
-              <Icons name="zoomOut" />
-            </div>
-          </div>
-        </flipbook>
-      
-    </section>
+  <div class="magazine">
+   <div class="swiper-wrapper">
+    <swiper
+    :effect="'coverflow'"
+    :grabCursor="true"
+    :centeredSlides="true"
+    :slidesPerView="'auto'"
+    :coverflowEffect="{
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    }"
+    :pagination="true"
+    :modules="modules"
+    class="swiper"
+  >
+    <swiper-slide class="swiper-slide"
+      ><img
+        src="@/assets/img/depan.jpg" /></swiper-slide
+    >
+    <swiper-slide class="swiper-slide"
+      ><img
+        src="@/assets/img/2.jpg" /></swiper-slide
+    >
+    <swiper-slide class="swiper-slide"
+      ><img
+        src="@/assets/img/3.jpg" /></swiper-slide
+    >
+    <swiper-slide class="swiper-slide"
+      ><img
+        src="@/assets/img/4.jpg" /></swiper-slide
+    >
+    <swiper-slide class="swiper-slide"
+      ><img
+        src="@/assets/img/5.jpg" /></swiper-slide
+    >
+    <swiper-slide class="swiper-slide"
+      ><img
+        src="@/assets/img/6.jpg" /></swiper-slide
+    >
+    <swiper-slide class="swiper-slide"
+      ><img
+        src="@/assets/img/7.jpg" /></swiper-slide
+    >
+    <swiper-slide class="swiper-slide"
+      ><img
+        src="@/assets/img/8.jpg" /></swiper-slide
+    >
+    <swiper-slide class="swiper-slide"
+      ><img
+        src="@/assets/img/9.jpg" /></swiper-slide
+    >
+    <swiper-slide class="swiper-slide"
+      ><img
+        src="@/assets/img/10.jpg" /></swiper-slide
+    >
+    <swiper-slide class="swiper-slide"
+      ><img
+        src="@/assets/img/11.jpg" /></swiper-slide
+    >
+    <swiper-slide class="swiper-slide"
+      ><img
+        src="@/assets/img/12.jpg" /></swiper-slide
+    >
+    <swiper-slide class="swiper-slide"
+      ><img
+        src="@/assets/img/13.jpg" /></swiper-slide
+    >
+    <swiper-slide class="swiper-slide"
+      ><img
+        src="@/assets/img/14.jpg" /></swiper-slide
+    >
+    <swiper-slide class="swiper-slide"
+      ><img
+        src="@/assets/img/15.jpg" /></swiper-slide
+    >
+    <swiper-slide class="swiper-slide"
+      ><img
+        src="@/assets/img/belakang.jpg" /></swiper-slide
+    >
+  </swiper>
+  </div>
+  </div>
   </main>
 </template>
 
 <script>
-import Flipbook from 'flipbook-vue'
-import 'vue-material-design-icons/styles.css'
-import LeftIcon from 'vue-material-design-icons/ChevronLeftCircle.vue'
-import RightIcon from 'vue-material-design-icons/ChevronRightCircle.vue'
-import PlusIcon from 'vue-material-design-icons/PlusCircle.vue'
-import MinusIcon from 'vue-material-design-icons/MinusCircle.vue'
-import Navbar from "@/components/Navbar.vue";
-import majalahOne from "../assets/img/book-cover.jpg";
-import majalahTwo from "../assets/img/book-cover.jpg";
-import majalahThree from "../assets/img/book-cover.jpg";
-// import LeftIcon from 'vue-material-design-icons/ChevronLeftCircle'
-// import RightIcon from 'vue-material-design-icons/ChevronRightCircle'
-// import PlusIcon from 'vue-material-design-icons/PlusCircle'
-// import MinusIcon from 'vue-material-design-icons/MinusCircle'
-import { ref } from 'vue'
-// const pages = ref([majalahOne, majalahTwo, majalahThree])
+  // Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+// Import Swiper styles
+import "swiper/css";
+
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+
+// import required modules
+import { EffectCoverflow, Pagination } from "swiper";
+
 export default {
-    components: { Flipbook, Navbar, LeftIcon, RightIcon, PlusIcon, MinusIcon},
-  
-}
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  setup() {
+    return {
+      modules: [EffectCoverflow, Pagination],
+    };
+  },
+};
 </script>
 
 <style>

@@ -2,6 +2,8 @@
 // import Icons from "../../components/Icons.vue";
 import Navbar from "@/components/Navbar.vue";
 
+import SwiperPage from "@/components/Swiper.vue";
+
 // import MagazineScroll from "@/components/ScrollMagazine.vue";
 import { ref } from "vue";
 import { defineComponent } from "vue";
@@ -9,28 +11,31 @@ import { defineComponent } from "vue";
 // import { value } from "dom7";
 import Flipbook from "flipbook-vue";
 import majalah1 from "/src/assets/img/depan.jpg";
-import majalah2 from "/src/assets/img/2.jpg";
-import majalah3 from "/src/assets/img/3.jpg";
-import majalah4 from "/src/assets/img/4.jpg";
-import majalah5 from "/src/assets/img/5.jpg";
-import majalah6 from "/src/assets/img/6.jpg";
-import majalah7 from "/src/assets/img/7.jpg";
-import majalah8 from "/src/assets/img/8.jpg";
-import majalah9 from "/src/assets/img/9.jpg";
-import majalah10 from "/src/assets/img/10.jpg";
-import majalah11 from "/src/assets/img/11.jpg";
-import majalah12 from "/src/assets/img/12.jpg";
-import majalah13 from "/src/assets/img/13.jpg";
-import majalah14 from "/src/assets/img/14.jpg";
-import majalah15 from "/src/assets/img/15.jpg";
-import majalah16 from "/src/assets/img/video.webp";
-import majalah17 from "/src/assets/img/video.webp";
+import majalah2 from "/src/assets/img/1.jpg";
+import majalah3 from "/src/assets/img/2.jpg";
+import majalah4 from "/src/assets/img/3.jpg";
+import majalah5 from "/src/assets/img/4.jpg";
+import majalah6 from "/src/assets/img/5.jpg";
+import majalah7 from "/src/assets/img/6.webp";
+import majalah8 from "/src/assets/img/7.jpg";
+import majalah9 from "/src/assets/img/8.jpg";
+import majalah10 from "/src/assets/img/9.jpg";
+import majalah11 from "/src/assets/img/10.jpg";
+import majalah12 from "/src/assets/img/11.jpg";
+import majalah13 from "/src/assets/img/12.jpg";
+import majalah14 from "/src/assets/img/13.jpg";
+import majalah15 from "/src/assets/img/14.jpg";
+// import majalah16 from "/src/assets/img/video.webp";
+// import majalah17 from "/src/assets/img/video.webp";
 import majalah18 from "/src/assets/img/belakang.jpg";
 // import $ from "jquery";
 // import jQuery from "jquery";
 // import "../../assets/js/turn.min.js";
 let toggleView = ref(false);
 let toggleMode = ref(false);
+let toggleSlider = ref(false);
+let toggleScroll = ref(false);
+let toggleSwiper = ref(false);
 let toggleMusic = ref(false);
 let toggleSwitch = ref(false);
 let toggleAudio = ref(false);
@@ -45,7 +50,7 @@ let audio = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1
 // });
 let volume = document.querySelector("#volume");
 let play = document.querySelector("#play");
-const pages = ref([
+const pagesFlipbook = ref([
   null,
   majalah1,
   majalah2,
@@ -62,8 +67,29 @@ const pages = ref([
   majalah13,
   majalah14,
   majalah15,
-  majalah16,
-  majalah17,
+  // majalah16,
+  // majalah17,
+  majalah18,
+]);
+
+const pagesScroll = ref([
+  majalah1,
+  majalah2,
+  majalah3,
+  majalah4,
+  majalah5,
+  majalah6,
+  majalah7,
+  majalah8,
+  majalah9,
+  majalah10,
+  majalah11,
+  majalah12,
+  majalah13,
+  majalah14,
+  majalah15,
+  // majalah16,
+  // majalah17,
   majalah18,
 ]);
 
@@ -78,15 +104,30 @@ function playAudio(e) {
 //   audio.volume = e.currentTarget.value / 100;
 // });
 // let valueVolume = volume.ariaValueNow;
+
+
+// export default {
+//   components: {
+//     Swiper,
+//     SwiperSlide,
+//     Navbar,
+//   },
+//   setup() {
+//     return {
+//       modules: [EffectCoverflow, Pagination],
+//     };
+//   },
+// };
+
 </script>
 <template>
   <main>
     <Navbar />
-    <div class="magazine">
+    <div class="magazine" :class="[toggleMode ? 'bg-img-true' : 'bg-img-false']">
       <flipbook
         v-if="toggleMode == false"
         class="flipbook"
-        :pages="pages"
+        :pages="pagesFlipbook"
         v-slot="flipbook"
       >
         <div class="container-magazine">
@@ -182,12 +223,16 @@ function playAudio(e) {
               </div>
             </div>
 
-      <div v-if="toggleMode" class="magazine-scroll">
+      <div v-if="toggleMode" class="magazine-scroll" :class="[toggleSwiper ? 'scroll-true' : 'scroll-false']">
         <div class="img-magazine-scrol">
-            <div v-for="item in pages" class="magazine-scroll-page">
+            <div v-for="item in pagesScroll" class="magazine-scroll-page">
                 <img v-bind:src="item" alt="" />
             </div>
         </div>
+      </div>
+
+      <div v-if="toggleSwiper == true" class="magazine-swiper pt-4">
+        <SwiperPage/>
       </div>
 
       <div class="setting-show" v-if="toggleSetting">
@@ -209,12 +254,23 @@ function playAudio(e) {
               </div>
             </div>
           </div>
-          <div class="slider d-flex">
+          <div class="slider d-flex my-2">
             <h6>Mode</h6>
-            <button @click="toggleMode = !toggleMode" class="">
-              <p v-if="toggleMode == false">scroll</p>
-              <p v-else>Flipbook</p>
+            <button @click="toggleMode = !toggleMode" class="bg-transparent">
+              <p class="m-0" v-if="toggleMode == false">Flipbook</p>
+              <p class="m-0" v-else>Slide</p>
             </button>
+          </div>
+          <div class="swiper-show d-flex">
+            <p>Swiper</p>
+              <div class="toggle ms-auto">
+                <input
+                  type="checkbox"
+                  @click="toggleSwiper = !toggleSwiper"
+                  class="toggle-switch"
+                />
+                <label for=""></label>
+              </div>
           </div>
         </div>
       </div>
@@ -278,8 +334,8 @@ function playAudio(e) {
 
 <style scoped>
 .flipbook {
-  width: 70vw;
-  height: 70vh;
+  width: 90vw;
+  height: 90vh;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -288,5 +344,13 @@ function playAudio(e) {
 img {
   width: 100%;
   height: 100%;
+}
+
+.modal-backdrop {
+  top: 0;
+  left: 0;
+}
+.modal-backdrop .show {
+  opacity: 0;
 }
 </style>

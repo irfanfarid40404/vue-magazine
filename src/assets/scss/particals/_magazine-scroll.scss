@@ -3,11 +3,22 @@
         width: 80vh;
         height: 80vh;
         position: absolute;
-        top: 50%;
+        top: 25rem;
         left: 50%;
         transform: translate(-50%, -50%);
         img {
             margin-bottom: 2rem;
         }
+        @media (max-width: 768px) {
+            width: 50vh;
+            height: 50vh;
+        }
     }
+}
+
+// .scroll-true {
+//     display: none;
+// }
+.bg-img-true {
+    height: 2000vh;
 }
