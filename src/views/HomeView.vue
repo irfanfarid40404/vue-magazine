@@ -1,10 +1,10 @@
 <script>
 // import TheWelcome from '../components/TheWelcome.vue'
 import Navbar from "@/components/Navbar.vue";
-import LoadingScreen from "@/components/LoadingScreen.vue";
+// import LoadingScreen from "@/components/LoadingScreen.vue";
 
 export default {
-  components: { Navbar, LoadingScreen },
+  components: { Navbar },
   name: "Inventory",
   data() {
     return {
