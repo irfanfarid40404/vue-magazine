@@ -258,7 +258,7 @@ function playAudio(e) {
             <h6>Mode</h6>
             <button @click="toggleMode = !toggleMode" class="bg-transparent">
               <p class="m-0" v-if="toggleMode == false">Flipbook</p>
-              <p class="m-0" v-else>Slide</p>
+              <p class="m-0" v-else>Scrolling</p>
             </button>
           </div>
           <div class="swiper-show d-flex">
