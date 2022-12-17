@@ -160,9 +160,9 @@ import { defineComponent } from "vue";
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
+              <!-- <h1 class="modal-title fs-5" id="exampleModalLabel">
                 Modal title
-              </h1>
+              </h1> -->
               <button
                 type="button"
                 class="btn-close"
@@ -176,7 +176,7 @@ import { defineComponent } from "vue";
                   <img src="../assets/img/Cover.jpg" alt="" class="w-100" />
                 </div>
               </div>
-              <div class="col-12 col-md-6 px-0 pt-4">
+              <div class="col-12 col-md-6 px-0">
                 <div class="modal-body">
                   <h3 class="heading">Bangkit Dari Covid 19</h3>
                   <p class="paragraf">23, November 2022</p>
