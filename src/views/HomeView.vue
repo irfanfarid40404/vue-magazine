@@ -57,7 +57,7 @@ export default {
                 pt-lg-5 pt-md-0
               "
             >
-              <h1 class="heading">Kembali Menata Untuk Bangkit</h1>
+              <h1 class="heading">Menata Kembali Untuk Bangkit</h1>
               <p class="paragraf">24 November 2022</p>
               <div class="icon-click d-flex">
                 <div class="icon me-4">
